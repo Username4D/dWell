@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcrwvgi6u8wsi"]
+
+[ext_resource type="Script" uid="uid://dfjr36ngpixfu" path="res://scenes/coin.gd" id="1_rwqht"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kahox"]
+friction = 0.05
+absorbent = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwqht"]
+radius = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_i64fm"]
+radius = 0.25
+height = 0.5
+
+[node name="coin" type="RigidBody2D"]
+mass = 4.534
+physics_material_override = SubResource("PhysicsMaterial_kahox")
+gravity_scale = 0.245
+script = ExtResource("1_rwqht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rwqht")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(1.90735e-06, 5.72205e-06)
+scale = Vector2(64.0726, 64)
+mesh = SubResource("SphereMesh_i64fm")

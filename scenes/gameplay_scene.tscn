@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cguvbcsfr6ly0"]
+
+[ext_resource type="PackedScene" uid="uid://bcrwvgi6u8wsi" path="res://scenes/coin.tscn" id="1_01stm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_01stm"]
+friction = 0.2
+
+[node name="gameplay_scene" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_01stm")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 64, 128, 192, 192, 224, 256, 224, 320, 192, 320, 448, 832, 640, 0, 640)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 64, 128, 192, 192, 224, 256, 224, 320, 192, 320, 448, 832, 640, 0, 640)
+
+[node name="coin" parent="StaticBody2D" instance=ExtResource("1_01stm")]
+position = Vector2(32, 32)
+mass = 0.367
+gravity_scale = 1.0
