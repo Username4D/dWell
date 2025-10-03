@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://7mjso68mdfwf"]
+
+[ext_resource type="Texture2D" uid="uid://baukilnn22noi" path="res://Assets/tiles.svg" id="1_cvjyr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6i4b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cvjyr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvjyr"]
+bg_color = Color(0, 0, 0, 0.286275)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpwv6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8ex6"]
+resource_local_to_scene = true
+atlas = ExtResource("1_cvjyr")
+region = Rect2(0, 0, 64, 64)
+
+[node name="inventory_button" type="Button"]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j6i4b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cvjyr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cvjyr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpwv6")
+
+[node name="sprite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(32, 32)
+texture = SubResource("AtlasTexture_x8ex6")
+
+[node name="amount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 64.0
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1

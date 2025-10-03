@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://cguvbcsfr6ly0"]
+[gd_scene load_steps=7 format=3 uid="uid://cguvbcsfr6ly0"]
 
 [ext_resource type="PackedScene" uid="uid://bcrwvgi6u8wsi" path="res://scenes/coin.tscn" id="1_01stm"]
 [ext_resource type="Texture2D" uid="uid://baukilnn22noi" path="res://Assets/tiles.svg" id="1_b2a1o"]
+[ext_resource type="Script" uid="uid://c8xd88e0gie7j" path="res://scripts/bar.gd" id="3_xpbwm"]
+[ext_resource type="PackedScene" uid="uid://7mjso68mdfwf" path="res://scenes/inventory_button.tscn" id="4_mvhas"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xpbwm"]
 texture = ExtResource("1_b2a1o")
@@ -479,8 +481,26 @@ sources/0 = SubResource("TileSetAtlasSource_xpbwm")
 [node name="gameplay_scene" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAMAAAACAAEAAAACAAQAAAACAAEAAAAEAAUAAAACAAEAAAABAAMAAAADAAEAAAADAAQAAAADAAEAAAAFAAUAAAADAAEAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAADAAcAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAIAAUAAAADAAAAAGAHAAYAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAYAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAADAAkAAAAAAAAAAAACAAkAAAAAAAAAAAABAAkAAAAAAAAAAAAAAAkAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_mvhas")
 
 [node name="coin" parent="." instance=ExtResource("1_01stm")]
 position = Vector2(32, 96)
+
+[node name="bar" type="HBoxContainer" parent="."]
+offset_top = 544.0
+offset_right = 1152.0
+offset_bottom = 608.0
+alignment = 1
+script = ExtResource("3_xpbwm")
+
+[node name="blocks" parent="bar" instance=ExtResource("4_mvhas")]
+layout_mode = 2
+
+[node name="slope_big" parent="bar" instance=ExtResource("4_mvhas")]
+layout_mode = 2
+
+[node name="slope_small" parent="bar" instance=ExtResource("4_mvhas")]
+layout_mode = 2
+
+[node name="slope_mid" parent="bar" instance=ExtResource("4_mvhas")]
+layout_mode = 2
