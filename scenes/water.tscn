@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://chn2gp8jgpsos"]
+
+[ext_resource type="Script" uid="uid://1g31vyp1lauq" path="res://scripts/water.gd" id="1_s3811"]
+[ext_resource type="Texture2D" uid="uid://baukilnn22noi" path="res://Assets/tiles.svg" id="2_p1n2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewrsg"]
+size = Vector2(64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fiwy5"]
+atlas = ExtResource("2_p1n2c")
+region = Rect2(0, 64, 64, 64)
+
+[node name="water" type="Area2D"]
+script = ExtResource("1_s3811")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_ewrsg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(2.00392, 2.00392, 2.00392, 0.14902)
+texture = SubResource("AtlasTexture_fiwy5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

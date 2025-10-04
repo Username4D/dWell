@@ -25,3 +25,5 @@ func gridlock(pos: Vector2) -> Vector2:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("rotate") and bpressed:
 		self.rotation_degrees += 90
+		if self.rotation_degrees >= 360:
+			self.rotation_degrees = 0

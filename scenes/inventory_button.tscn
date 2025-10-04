@@ -33,7 +33,6 @@ position = Vector2(32, 32)
 texture = SubResource("AtlasTexture_x8ex6")
 
 [node name="amount" type="Label" parent="."]
-modulate = Color(2, 2, 2, 1)
 layout_mode = 0
 offset_left = 32.0
 offset_top = 32.0

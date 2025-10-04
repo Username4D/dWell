@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dnkki3vc2dd3"]
+
+[node name="open_spot" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+modulate = Color(1.2, 1.2, 1.2, 1)
+z_index = -1
+color = Color(1.2, 0.729412, 1.2, 0.0588235)
+polygon = PackedVector2Array(0, 0, 0, 64, 64, 64, 64, 0)
