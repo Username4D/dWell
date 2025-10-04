@@ -3,6 +3,7 @@ extends HBoxContainer
 @export var lvl_objects = {"blocks": 1, "slope_big": 2, "slope_small": 2, "slope_mid": 2}
 var offsets = {"blocks": Vector2(0,0), "slope_big": Vector2(128, 64), "slope_small": Vector2(192, 64), "slope_mid": Vector2(192, 0)}
 var object_scene = preload("res://scenes/object.tscn")
+var disabled = false
 
 func _process(delta: float) -> void:
 	for i in get_children():
@@ -18,8 +19,7 @@ func _ready() -> void:
 		i.pressed.connect(create.bind(i))
 	$blocks.pressed.connect(create.bind($blocks))
 func create(i:Node) -> void:
-	print("lol")
-	if lvl_objects[i.name] > 0:
+	if lvl_objects[i.name] > 0 and not disabled:
 		var object = object_scene.instantiate()
 		object.bpressed = true
 		object.oname = i.name
@@ -29,3 +29,8 @@ func create(i:Node) -> void:
 		await i.button_up
 		object._released()
 		lvl_objects[i.name] -= 1
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("start"):
+		disabled = false if disabled else true
+		self.visible = not disabled
