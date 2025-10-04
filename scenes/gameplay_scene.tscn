@@ -437,7 +437,9 @@ tile_map_data = PackedByteArray(0, 0, 5, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 5, 0, 
 tile_set = SubResource("TileSet_mvhas")
 
 [node name="coin" parent="." instance=ExtResource("1_01stm")]
-position = Vector2(32, 96)
+position = Vector2(32, 32)
+disable_mode = 1
+freeze = true
 
 [node name="bar" type="HBoxContainer" parent="."]
 offset_top = 544.0
