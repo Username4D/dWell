@@ -2,6 +2,7 @@ extends HBoxContainer
 
 @export var lvl_objects = {"blocks": 1, "slope_big": 2, "slope_small": 2, "slope_mid": 2}
 var offsets = {"blocks": Vector2(0,0), "slope_big": Vector2(128, 64), "slope_small": Vector2(192, 64), "slope_mid": Vector2(192, 0)}
+var object_scene = preload("res://scenes/object.tscn")
 
 func _process(delta: float) -> void:
 	for i in get_children():
@@ -11,3 +12,20 @@ func _process(delta: float) -> void:
 		else:
 			i.visible = true
 		i.get_node("sprite").texture.region = Rect2(offsets[i.name], Vector2(64,64))
+
+func _ready() -> void:
+	for i in get_children():
+		i.pressed.connect(create.bind(i))
+	$blocks.pressed.connect(create.bind($blocks))
+func create(i:Node) -> void:
+	print("lol")
+	if lvl_objects[i.name] > 0:
+		var object = object_scene.instantiate()
+		object.bpressed = true
+		object.oname = i.name
+		object.pressed.emit()
+		object.get_node("sprite").texture.region = Rect2(offsets[i.name], Vector2(64,64))
+		$"../objects".add_child(object)
+		await i.button_up
+		object._released()
+		lvl_objects[i.name] -= 1

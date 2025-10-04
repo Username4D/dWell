@@ -25,6 +25,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_j6i4b")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cvjyr")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_cvjyr")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vpwv6")
+action_mode = 0
 
 [node name="sprite" type="Sprite2D" parent="."]
 z_index = -1
