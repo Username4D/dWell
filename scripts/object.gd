@@ -21,3 +21,7 @@ func _process(delta: float) -> void:
 		self.position = get_viewport().get_mouse_position() - Vector2(32,32)
 func gridlock(pos: Vector2) -> Vector2:
 	return round((pos -Vector2(32,32)) / 64) * 64 + Vector2(32,32)
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("rotate") and bpressed:
+		self.rotation_degrees += 90
