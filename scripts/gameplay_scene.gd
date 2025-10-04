@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var spawnpos = Vector2.ZERO
+@export var spawnpos = Vector2(416, 32)
 @export var possible_placements = []
 
 func _ready() -> void:
