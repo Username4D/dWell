@@ -2,7 +2,7 @@ extends Node2D
 
 @export var spawnpos = Vector2(416, 32)
 @export var possible_placements = []
-
+@export var stars = 0
 enum TileTransform {
 	R0 = 0,
 	R90 = TileSetAtlasSource.TRANSFORM_TRANSPOSE | TileSetAtlasSource.TRANSFORM_FLIP_H,
@@ -17,6 +17,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("start"):
 		if $coin.freeze:
+			$tilemap_objects.clear()
 			$tilemap_objects.visible = true
 			$objects.visible = false
 			$coin.freeze = false
@@ -25,7 +26,7 @@ func _input(event: InputEvent) -> void:
 				print(i.get_node("sprite").texture.region.position / 64)
 			print($tilemap_objects.get_used_cells())
 		else:
-			$tilemap_objects.clear
+			$tilemap_objects.clear()
 			$tilemap_objects.visible = false
 			$objects.visible = true
 			$coin.linear_velocity = Vector2.ZERO
@@ -38,3 +39,6 @@ func _input(event: InputEvent) -> void:
 			)
 			await get_tree().physics_frame
 			$coin.freeze = true
+			stars = 0
+func finish() -> void:
+	print("Finished")
