@@ -69,6 +69,7 @@ scale = Vector2(48, 48)
 mesh = SubResource("QuadMesh_hrusj")
 
 [node name="star" type="Sprite2D" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0.16)
 z_index = -1
 position = Vector2(32, 32)
