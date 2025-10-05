@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://ybufpojdxqmr"]
+
+[ext_resource type="Script" uid="uid://mpgha2056lj1" path="res://scripts/d_well.gd" id="1_jfh74"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2csfv"]
+font_size = 171
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8qap"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_umqak"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_321qv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yr6jo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06we1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wwte5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c0x8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypkok"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ko20"]
+bg_color = Color(1, 1, 1, 0.077)
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_po4iq"]
+
+[node name="dWell" type="Node2D"]
+script = ExtResource("1_jfh74")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 64.0
+offset_right = 1152.0
+offset_bottom = 320.0
+text = "dWell"
+label_settings = SubResource("LabelSettings_2csfv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="play" type="Button" parent="."]
+offset_left = 384.0
+offset_top = 352.0
+offset_right = 768.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 51
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g8qap")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_umqak")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_321qv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yr6jo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_06we1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_wwte5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c0x8e")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ypkok")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ko20")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_po4iq")
+text = "play"
+
+[node name="settings" type="Button" parent="."]
+offset_top = 512.0
+offset_right = 256.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g8qap")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_umqak")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_321qv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yr6jo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_06we1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_wwte5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c0x8e")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ypkok")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ko20")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_po4iq")
+text = "settings"
+
+[node name="credits" type="Button" parent="."]
+offset_left = 896.0
+offset_top = 512.0
+offset_right = 1152.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g8qap")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_umqak")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_321qv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yr6jo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_06we1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_wwte5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c0x8e")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ypkok")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ko20")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_po4iq")
+text = "credits"
