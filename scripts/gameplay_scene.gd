@@ -5,7 +5,7 @@ extends Node2D
 @export var possible_placements = []
 @export var stars = 0
 @export var lvl = preload("res://scenes/levels/level_1.tscn")
-var can_start = true
+@export var can_start = true
 enum TileTransform {
 	R0 = 0,
 	R90 = TileSetAtlasSource.TRANSFORM_TRANSPOSE | TileSetAtlasSource.TRANSFORM_FLIP_H,
@@ -82,4 +82,4 @@ func _on_retry_pressed() -> void:
 	await get_tree().physics_frame
 	$coin.freeze = true
 	stars = 0
-	
+	$bar.change()

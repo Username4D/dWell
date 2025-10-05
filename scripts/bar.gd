@@ -31,6 +31,10 @@ func create(i:Node) -> void:
 		lvl_objects[i.name] -= 1
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("start"):
+	if Input.is_action_just_pressed("start") and self.get_parent().can_start:
 		disabled = false if disabled else true
 		self.visible = not disabled
+
+func change():
+	disabled = false if disabled else true
+	self.visible = not disabled
