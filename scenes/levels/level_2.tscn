@@ -1,13 +1,13 @@
-[gd_scene load_steps=8 format=4 uid="uid://dwdnpso7fayjk"]
+[gd_scene load_steps=8 format=4 uid="uid://itmfg42eq452"]
 
-[ext_resource type="Texture2D" uid="uid://baukilnn22noi" path="res://Assets/tiles.svg" id="1_x42e6"]
-[ext_resource type="PackedScene" uid="uid://dnkki3vc2dd3" path="res://scenes/open_spot.tscn" id="2_6761a"]
-[ext_resource type="PackedScene" uid="uid://chn2gp8jgpsos" path="res://scenes/water.tscn" id="3_sk5k4"]
-[ext_resource type="PackedScene" uid="uid://b6mf3uyscf1w8" path="res://scenes/star.tscn" id="4_oc4kc"]
-[ext_resource type="PackedScene" uid="uid://d1h6w05p5ulve" path="res://scenes/header.tscn" id="5_6761a"]
+[ext_resource type="Texture2D" uid="uid://baukilnn22noi" path="res://Assets/tiles.svg" id="1_l37oo"]
+[ext_resource type="PackedScene" uid="uid://dnkki3vc2dd3" path="res://scenes/open_spot.tscn" id="2_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://chn2gp8jgpsos" path="res://scenes/water.tscn" id="3_ibugp"]
+[ext_resource type="PackedScene" uid="uid://b6mf3uyscf1w8" path="res://scenes/star.tscn" id="4_8qukl"]
+[ext_resource type="PackedScene" uid="uid://d1h6w05p5ulve" path="res://scenes/header.tscn" id="5_3p04p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s8va5"]
-texture = ExtResource("1_x42e6")
+texture = ExtResource("1_l37oo")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -44,7 +44,7 @@ texture_region_size = Vector2i(64, 64)
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 0, -32, 32, 32, 32, 32, 0)
 1:1/0 = 0
 2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, 0)
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 0, 32, 32, -32, 32)
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 0, 32, 32, 32, 32, -32, 32)
 4:1/0 = 0
@@ -428,85 +428,124 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_s8va5")
 
-[node name="level_1" type="Node2D"]
+[node name="level_2" type="Node2D"]
 
 [node name="tilemap_bg" type="TileMapLayer" parent="."]
 modulate = Color(1.4, 1.4, 1.4, 1)
 z_index = -2
-tile_map_data = PackedByteArray("AAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAAAAAARAAUAAAAAAAAAAAARAAYAAAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAARAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAABAAkAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAACAAcAAAAAAAAAAAACAAgAAAAAAAAAAAACAAkAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAADAAcAAAAAAAAAAAADAAgAAAAAAAAAAAADAAkAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAANAAkAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAgAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAgAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAgAAAAAAAAAAAALAAkAAAAAAAAAAAAJAAcAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAAAAAARAAUAAAAAAAAAAAARAAYAAAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAARAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAABAAkAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAACAAcAAAAAAAAAAAACAAgAAAAAAAAAAAACAAkAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAADAAcAAAAAAAAAAAADAAgAAAAAAAAAAAADAAkAAAAAAAAAAAAMAAgAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAgAAAAAAAAAAAANAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAgAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAgAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAgAAAAAAAAAAAALAAkAAAAAAAAAAAAKAAcAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_dga24")
 
 [node name="possible_placements" type="Node2D" parent="."]
 z_index = -2
 
-[node name="open_spot" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(384, 192)
 
-[node name="open_spot2" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot19" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(320, 192)
+
+[node name="open_spot20" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(256, 192)
+
+[node name="open_spot21" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(256, 256)
+
+[node name="open_spot22" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(320, 256)
+
+[node name="open_spot23" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(320, 320)
+
+[node name="open_spot24" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(256, 320)
+
+[node name="open_spot25" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(768, 320)
+
+[node name="open_spot26" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(832, 320)
+
+[node name="open_spot27" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(832, 256)
+
+[node name="open_spot28" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(768, 256)
+
+[node name="open_spot29" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(768, 192)
+
+[node name="open_spot30" parent="possible_placements" instance=ExtResource("2_qpwj6")]
+position = Vector2(832, 192)
+
+[node name="open_spot2" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(448, 192)
 
-[node name="open_spot3" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot3" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(512, 192)
 
-[node name="open_spot4" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot4" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(576, 192)
 
-[node name="open_spot5" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot5" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(640, 192)
 
-[node name="open_spot6" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot6" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(704, 192)
 
-[node name="open_spot7" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot7" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(384, 256)
 
-[node name="open_spot8" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot8" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(448, 256)
 
-[node name="open_spot9" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot9" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(512, 256)
 
-[node name="open_spot10" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot10" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(576, 256)
 
-[node name="open_spot11" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot11" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(640, 256)
 
-[node name="open_spot12" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot12" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(704, 256)
 
-[node name="open_spot13" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot13" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(384, 320)
 
-[node name="open_spot14" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot14" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(448, 320)
 
-[node name="open_spot15" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot15" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(512, 320)
 
-[node name="open_spot16" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot16" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(576, 320)
 
-[node name="open_spot17" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot17" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(640, 320)
 
-[node name="open_spot18" parent="possible_placements" instance=ExtResource("2_6761a")]
+[node name="open_spot18" parent="possible_placements" instance=ExtResource("2_qpwj6")]
 position = Vector2(704, 320)
 
-[node name="water" parent="." instance=ExtResource("3_sk5k4")]
-position = Vector2(672, 480)
-
-[node name="water2" parent="." instance=ExtResource("3_sk5k4")]
+[node name="water" parent="." instance=ExtResource("3_ibugp")]
 position = Vector2(736, 480)
 
-[node name="star" parent="." instance=ExtResource("4_oc4kc")]
-position = Vector2(736, 224)
+[node name="water3" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(800, 480)
 
-[node name="header" parent="." instance=ExtResource("5_6761a")]
+[node name="water2" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(864, 480)
+
+[node name="star" parent="." instance=ExtResource("4_8qukl")]
+position = Vector2(800, 288)
+
+[node name="header" parent="." instance=ExtResource("5_3p04p")]
 items = {
-"blocks": 1,
-"slope_big": 1,
+"blocks": 2,
+"slope_big": 0,
 "slope_mid": 1,
-"slope_small": 2
+"slope_small": 4
 }
-spawnpos = Vector2(416, 32)
+spawnpos = Vector2(288, 32)

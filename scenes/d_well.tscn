@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ybufpojdxqmr"]
+[gd_scene load_steps=23 format=3 uid="uid://ybufpojdxqmr"]
 
 [ext_resource type="Script" uid="uid://mpgha2056lj1" path="res://scripts/d_well.gd" id="1_jfh74"]
 
@@ -26,6 +26,27 @@ bg_color = Color(1, 1, 1, 0.077)
 draw_center = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_po4iq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jfh74"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2csfv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ko20"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_67y5h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36wl7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itvvg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_60uhd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3fw5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yjn4"]
+bg_color = Color(1, 1, 1, 0.144)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_161ro"]
 
 [node name="dWell" type="Node2D"]
 script = ExtResource("1_jfh74")
@@ -91,3 +112,78 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ypkok")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1ko20")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_po4iq")
 text = "credits"
+
+[node name="settings_popup" type="ColorRect" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 672.0
+color = Color(0, 0, 0, 0.906)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="settings_popup"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+bbcode_enabled = true
+text = "[i]no settings yet...[/i]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="settings_popup"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 352.0
+offset_right = 640.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jfh74")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2csfv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ko20")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_67y5h")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_36wl7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_itvvg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_60uhd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_q3fw5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3yjn4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_161ro")
+text = "back"
+
+[node name="credits_popup" type="ColorRect" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 672.0
+color = Color(0, 0, 0, 0.906)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="credits_popup"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+bbcode_enabled = true
+text = "https://godotengine.org/license/
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="credits_popup"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 352.0
+offset_right = 640.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jfh74")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2csfv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ko20")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_67y5h")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_36wl7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_itvvg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_60uhd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_q3fw5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3yjn4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_161ro")
+text = "back"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="settings_popup/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="credits_popup/Button" to="." method="_on_button2_pressed"]
