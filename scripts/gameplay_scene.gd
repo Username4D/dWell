@@ -55,6 +55,10 @@ func _input(event: InputEvent) -> void:
 func finish() -> void:
 	$finish.visible = true
 	can_start = false
+	if stars >= 1:
+		$finish/star.visible = true
+	else:
+		$finish/star.visible = false
 
 func _on_back_pressed() -> void:
 	var menu = load("res://scenes/menu_level.tscn").instantiate()

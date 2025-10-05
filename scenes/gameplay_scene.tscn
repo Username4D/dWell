@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://cguvbcsfr6ly0"]
+[gd_scene load_steps=23 format=3 uid="uid://cguvbcsfr6ly0"]
 
 [ext_resource type="PackedScene" uid="uid://bcrwvgi6u8wsi" path="res://scenes/coin.tscn" id="1_01stm"]
 [ext_resource type="Script" uid="uid://baujol7o3nvr0" path="res://scripts/gameplay_scene.gd" id="1_1126i"]
 [ext_resource type="Texture2D" uid="uid://baukilnn22noi" path="res://Assets/tiles.svg" id="1_b2a1o"]
 [ext_resource type="Script" uid="uid://c8xd88e0gie7j" path="res://scripts/bar.gd" id="3_xpbwm"]
 [ext_resource type="PackedScene" uid="uid://7mjso68mdfwf" path="res://scenes/inventory_button.tscn" id="4_mvhas"]
+[ext_resource type="Texture2D" uid="uid://ddp5vh6u4ncnr" path="res://Assets/tiles_hi_res.svg" id="6_1126i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27dq3"]
 texture = ExtResource("1_b2a1o")
@@ -462,6 +463,10 @@ bg_color = Color(1, 1, 1, 0.0392157)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72mtb"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd025"]
+atlas = ExtResource("6_1126i")
+region = Rect2(512, 128, 128, 128)
+
 [node name="gameplay_scene" type="Node2D"]
 script = ExtResource("1_1126i")
 
@@ -506,6 +511,7 @@ environment = SubResource("Environment_27dq3")
 
 [node name="finish" type="ColorRect" parent="."]
 visible = false
+modulate = Color(2, 2, 2, 1)
 z_index = 5
 offset_left = 256.0
 offset_top = 128.0
@@ -555,6 +561,12 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_a6sfl")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_72mtb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_72mtb")
 text = "Retry"
+
+[node name="star" type="Sprite2D" parent="finish"]
+z_index = -1
+position = Vector2(320, 176)
+scale = Vector2(1.25, 1.25)
+texture = SubResource("AtlasTexture_cd025")
 
 [connection signal="pressed" from="finish/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="finish/retry" to="." method="_on_retry_pressed"]
