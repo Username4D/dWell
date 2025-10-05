@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	for i in get_children():
 		i.pressed.connect(create.bind(i))
-	$blocks.pressed.connect(create.bind($blocks))
+	
 func create(i:Node) -> void:
 	if lvl_objects[i.name] > 0 and not disabled:
 		var object = object_scene.instantiate()
