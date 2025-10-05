@@ -52,6 +52,9 @@ func _input(event: InputEvent) -> void:
 			await get_tree().physics_frame
 			$coin.freeze = true
 			stars = 0
+	if Input.is_action_pressed("esc"):
+		Input.action_release("esc")
+		_on_back_pressed()
 func finish() -> void:
 	$finish.visible = true
 	can_start = false
@@ -71,6 +74,7 @@ func _on_back_pressed() -> void:
 	var menu = load("res://scenes/menu_level.tscn").instantiate()
 	self.get_parent().add_child(menu)
 	self.queue_free()
+
 
 func _on_retry_pressed() -> void:
 	can_start = true

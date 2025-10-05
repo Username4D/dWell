@@ -29,7 +29,7 @@ func _ready() -> void:
 			i.pressed.connect(start_level.bind(i.name))
 		if stars[int(i.name) -1 ]:
 			i.get_node("star").visible = true
-		
+	
 	
 func start_level(lvl): 
 	var gp_scene = load("res://scenes/gameplay_scene.tscn").instantiate()
@@ -37,3 +37,8 @@ func start_level(lvl):
 	self.get_parent().get_parent().add_child(gp_scene)
 	self.get_parent().queue_free()
 	gp_scene.num = lvl
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("esc"):
+		self.get_parent().get_parent().add_child(load("res://scenes/d_well.tscn").instantiate())
+		self.get_parent().queue_free()

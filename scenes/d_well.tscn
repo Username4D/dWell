@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://ybufpojdxqmr"]
+[gd_scene load_steps=24 format=3 uid="uid://ybufpojdxqmr"]
 
 [ext_resource type="Script" uid="uid://mpgha2056lj1" path="res://scripts/d_well.gd" id="1_jfh74"]
+[ext_resource type="Texture2D" uid="uid://bdao7dkjorw1g" path="res://Assets/well.svg" id="2_2csfv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2csfv"]
 font_size = 171
@@ -93,7 +94,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_c0x8e")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ypkok")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1ko20")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_po4iq")
-text = "settings"
+text = "tutorial"
 
 [node name="credits" type="Button" parent="."]
 offset_left = 896.0
@@ -121,19 +122,21 @@ color = Color(0, 0, 0, 0.906)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="settings_popup"]
 layout_mode = 0
-offset_right = 1152.0
+offset_left = 64.0
+offset_right = 1088.0
 offset_bottom = 640.0
 bbcode_enabled = true
-text = "[i]no settings yet...[/i]"
+text = "[i]oh no, someone has dropped a coin in the well, but its not reaching the water at the bottom...[/i]
+Help the coin get to the grey water at the bottom by dragging blocks into the marked area and rotating them using R. If you want to test your setup press SPACE. If you want to go back, press ESCAPE or TAB. And who knows, maybe these stars can give the coin-thrower some extra luck..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="settings_popup"]
 layout_mode = 0
 offset_left = 512.0
-offset_top = 352.0
+offset_top = 384.0
 offset_right = 640.0
-offset_bottom = 384.0
+offset_bottom = 416.0
 theme_override_font_sizes/font_size = 11
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jfh74")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2csfv")
@@ -181,6 +184,12 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_q3fw5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3yjn4")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_161ro")
 text = "back"
+
+[node name="Well" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.265)
+z_index = -3
+position = Vector2(576, 392)
+texture = ExtResource("2_2csfv")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
