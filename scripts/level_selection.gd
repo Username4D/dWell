@@ -10,4 +10,11 @@ func _ready() -> void:
 			i.self_modulate.a = 0.5
 		if stars[int(i.name) -1 ]:
 			i.get_node("star").visible = false
+		i.pressed.connect(start_level.bind(i.name))
+	
+func start_level(lvl): 
+	var gp_scene = load("res://scenes/gameplay_scene.tscn").instantiate()
+	gp_scene.lvl = load("res://scenes/levels/level_" + lvl + ".tscn")
+	self.get_parent().get_parent().add_child(gp_scene)
+	self.get_parent().queue_free()
 	

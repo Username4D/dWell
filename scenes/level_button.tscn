@@ -1,6 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://bab12cr1if8yf"]
+[gd_scene load_steps=17 format=3 uid="uid://bab12cr1if8yf"]
 
 [ext_resource type="Texture2D" uid="uid://ddp5vh6u4ncnr" path="res://Assets/tiles_hi_res.svg" id="1_i0sit"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0sit"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o8246"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hrusj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6g3el"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ium1h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nfgsp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b0rp6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6acxe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d4ys"]
+bg_color = Color(1, 1, 1, 0.105882)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a8iiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25g0x"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_o8246"]
 
@@ -14,36 +37,48 @@ region = Rect2(512, 128, 128, 128)
 font_size = 40
 
 [node name="level_button" type="Button"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(128, 128)
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+custom_minimum_size = Vector2(64, 64)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i0sit")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_o8246")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hrusj")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6g3el")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ium1h")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_nfgsp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b0rp6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_6acxe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3d4ys")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_a8iiq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_25g0x")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(0.0392157, 0.0431373, 0.0745098, 1)
-position = Vector2(64, 64)
+z_index = -1
+position = Vector2(32, 32)
 scale = Vector2(64, 64)
 mesh = SubResource("QuadMesh_o8246")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
 modulate = Color(0.0745098, 0.0705882, 0.113725, 1)
-position = Vector2(64, 64)
+z_index = -1
+position = Vector2(32, 32)
 scale = Vector2(48, 48)
 mesh = SubResource("QuadMesh_hrusj")
 
 [node name="star" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.16)
-position = Vector2(64, 64)
+z_index = -1
+position = Vector2(32, 32)
 texture = SubResource("AtlasTexture_6g3el")
 
 [node name="label" type="Label" parent="."]
+z_index = -1
 layout_mode = 0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = 64.0
+offset_bottom = 64.0
 text = "1"
 label_settings = SubResource("LabelSettings_ium1h")
 horizontal_alignment = 1

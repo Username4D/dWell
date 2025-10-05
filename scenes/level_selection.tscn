@@ -6,7 +6,7 @@
 [node name="levels" type="HBoxContainer"]
 offset_right = 1024.0
 offset_bottom = 64.0
-theme_override_constants/separation = 0
+theme_override_constants/separation = 64
 script = ExtResource("1_gswpo")
 
 [node name="1" parent="." instance=ExtResource("2_3rh63")]
