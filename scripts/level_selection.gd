@@ -17,4 +17,4 @@ func start_level(lvl):
 	gp_scene.lvl = load("res://scenes/levels/level_" + lvl + ".tscn")
 	self.get_parent().get_parent().add_child(gp_scene)
 	self.get_parent().queue_free()
-	
+	gp_scene.num = lvl

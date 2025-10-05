@@ -1,9 +1,11 @@
 extends Node2D
 
+@export var num = "0"
 @export var spawnpos = Vector2(416, 32)
 @export var possible_placements = []
 @export var stars = 0
 @export var lvl = preload("res://scenes/levels/level_1.tscn")
+var can_start = true
 enum TileTransform {
 	R0 = 0,
 	R90 = TileSetAtlasSource.TRANSFORM_TRANSPOSE | TileSetAtlasSource.TRANSFORM_FLIP_H,
@@ -25,7 +27,7 @@ func _ready() -> void:
 	PhysicsServer2D.body_set_state($coin.get_rid(),PhysicsServer2D.BODY_STATE_TRANSFORM,Transform2D.IDENTITY.translated(spawnpos))
 	
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("start"):
+	if Input.is_action_just_pressed("start") and can_start:
 		if $coin.freeze:
 			$tilemap_objects.clear()
 			$tilemap_objects.visible = true
@@ -51,4 +53,29 @@ func _input(event: InputEvent) -> void:
 			$coin.freeze = true
 			stars = 0
 func finish() -> void:
-	print("Finished")
+	$finish.visible = true
+	can_start = false
+
+func _on_back_pressed() -> void:
+	var menu = load("res://scenes/menu_level.tscn").instantiate()
+	self.get_parent().add_child(menu)
+	self.queue_free()
+
+func _on_retry_pressed() -> void:
+	can_start = true
+	$finish.visible = false
+	$tilemap_objects.clear()
+	$tilemap_objects.visible = false
+	$objects.visible = true
+	$coin.linear_velocity = Vector2.ZERO
+	$coin.angular_velocity = 0
+	await get_tree().physics_frame
+	PhysicsServer2D.body_set_state(
+	$coin.get_rid(),
+	PhysicsServer2D.BODY_STATE_TRANSFORM,
+	Transform2D.IDENTITY.translated(spawnpos)
+	)
+	await get_tree().physics_frame
+	$coin.freeze = true
+	stars = 0
+	
