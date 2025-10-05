@@ -23,8 +23,11 @@ func _ready() -> void:
 		i.reparent(self)
 	for i in $possible_placements.get_children():
 		possible_placements.append(i.position)
+	await get_tree().physics_frame
 	var dict = {"borders": $tilemap_bg.get_used_cells(), "borders_id": $tilemap_bg.get_used_cells_by_id()}
-	PhysicsServer2D.body_set_state($coin.get_rid(),PhysicsServer2D.BODY_STATE_TRANSFORM,Transform2D.IDENTITY.translated(spawnpos))
+	PhysicsServer2D.body_set_state($coin.get_rid(),PhysicsServer2D.BODY_STATE_TRANSFORM,Transform2D.IDENTITY.translated(header.spawnpos))
+	await get_tree().physics_frame
+	$coin.freeze = true
 	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("start") and can_start:

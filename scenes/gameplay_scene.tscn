@@ -478,7 +478,6 @@ tile_set = SubResource("TileSet_mvhas")
 modulate = Color(2, 2, 2, 1)
 position = Vector2(416, 32)
 disable_mode = 1
-freeze = true
 
 [node name="bar" type="HBoxContainer" parent="."]
 modulate = Color(3, 3, 3, 1)
