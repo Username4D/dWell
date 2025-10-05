@@ -59,6 +59,13 @@ func finish() -> void:
 		$finish/star.visible = true
 	else:
 		$finish/star.visible = false
+	
+	var safefile = FileAccess.open("user://levels.dat", FileAccess.READ).get_var()
+	safefile[int(num) - 1] = 1 if stars == 0 and safefile[int(num) - 1] != 2 else 2
+	
+	var newsafefile = FileAccess.open("user://levels.dat", FileAccess.WRITE)
+	newsafefile.store_var(safefile)
+	
 
 func _on_back_pressed() -> void:
 	var menu = load("res://scenes/menu_level.tscn").instantiate()
