@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bab12cr1if8yf"]
+
+[ext_resource type="Texture2D" uid="uid://ddp5vh6u4ncnr" path="res://Assets/tiles_hi_res.svg" id="1_i0sit"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_o8246"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hrusj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g3el"]
+atlas = ExtResource("1_i0sit")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ium1h"]
+font_size = 40
+
+[node name="level_button" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(128, 128)
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.0392157, 0.0431373, 0.0745098, 1)
+position = Vector2(64, 64)
+scale = Vector2(64, 64)
+mesh = SubResource("QuadMesh_o8246")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+modulate = Color(0.0745098, 0.0705882, 0.113725, 1)
+position = Vector2(64, 64)
+scale = Vector2(48, 48)
+mesh = SubResource("QuadMesh_hrusj")
+
+[node name="star" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.16)
+position = Vector2(64, 64)
+texture = SubResource("AtlasTexture_6g3el")
+
+[node name="label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 96.0
+text = "1"
+label_settings = SubResource("LabelSettings_ium1h")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -508,4 +508,4 @@ items = {
 "slope_mid": 2,
 "slope_small": 2
 }
-spawnpos = Vector2(547.4, 32)
+spawnpos = Vector2(416, 32)
